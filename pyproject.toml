@@ -64,6 +64,9 @@ select = [
     # eradicate - removes commented-out code from Python files 
     # https://docs.astral.sh/ruff/rules/#eradicate-era 
     "ERA", 
+    # FastAPI rules
+    # https://docs.astral.sh/ruff/rules/#fastapi-fast
+    "FAST",
     "I",
     "E4",
     "E7",
