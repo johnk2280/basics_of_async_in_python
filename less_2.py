@@ -1,22 +1,24 @@
 from select import select
-from socket import socket
-from socket import AF_INET
-from socket import SOCK_STREAM
-from socket import SOL_SOCKET
-from socket import SO_REUSEADDR
+from socket import AF_INET, SO_REUSEADDR, SOCK_STREAM, SOL_SOCKET, socket
 
 server_sock = socket(AF_INET, SOCK_STREAM)
 server_sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 server_sock.bind(('localhost', 5001))
 server_sock.listen()
 
-to_monitor = []
+to_monitor: list[socket] = []
 
 
 def accept_connection(sock: socket) -> None:
     client_sock, addr = sock.accept()
     print(f'Connection from: {addr}')
     to_monitor.append(client_sock)
+
+
+# def accept_connection(sock: socket) -> None:
+#     client_sock, addr =                                                  sock.accept()
+#     print(f'Connection from: {addr}')
+#     to_monitor.append(client_sock)
 
 
 def send_message(client_sock: socket) -> None:
