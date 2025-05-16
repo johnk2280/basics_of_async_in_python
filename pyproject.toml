@@ -60,7 +60,25 @@ show-fixes = true
 
 [tool.ruff.lint]
 # Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
-select = ["ERA", "I","E4", "E7", "E9", "F", "B", "COM", "RET", "SIM", "ARG", "PTH", "TD", "RUF", "N"]
+select = [
+    # eradicate - removes commented-out code from Python files 
+    # https://docs.astral.sh/ruff/rules/#eradicate-era 
+    "ERA", 
+    "I",
+    "E4",
+    "E7",
+    "E9",
+    "F",
+    "B",
+    "COM",
+    "RET",
+    "SIM",
+    "ARG",
+    "PTH",
+    "TD",
+    "RUF",
+    "N",
+]
 ignore = ["N815", "TD002", "TD003", "RUF003"]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
