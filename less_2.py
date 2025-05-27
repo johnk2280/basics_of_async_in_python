@@ -1,5 +1,10 @@
+import asyncio
 from select import select
-from socket import AF_INET, SO_REUSEADDR, SOCK_STREAM, SOL_SOCKET, socket
+from socket import AF_INET
+from socket import SOCK_STREAM
+from socket import SOL_SOCKET
+from socket import SO_REUSEADDR
+from socket import socket
 
 server_sock = socket(AF_INET, SOCK_STREAM)
 server_sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
@@ -16,7 +21,7 @@ def accept_connection(sock: socket) -> None:
 
 
 # def accept_connection(sock: socket) -> None:
-#     client_sock, addr =                                                  sock.accept()
+#     client_sock, addr = sock.accept()
 #     print(f'Connection from: {addr}')
 #     to_monitor.append(client_sock)
 
@@ -41,6 +46,53 @@ def event_loop() -> None:
                 send_message(sock)
 
 
+async def bar():
+    asyncio.sleep(1)
+
+
+def func():
+    return await bar()
+
+
+a = {
+    'b': 1,
+    'c': 2,
+}
+c = [1, 2, 3]
+
+
+class A:
+    def __init__(
+        self,
+        a: int,
+        *,
+        b: str,
+        c: bool,
+    ):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def foo(self, v: list = []):
+        for l in range(3):
+            print('ok')
+        return v
+
+
+ai = A(a=1, b='2', c=True)
+
 if __name__ == '__main__':
     to_monitor.append(server_sock)
+    password = 'asdf'
+
+    try:
+        a = 1 / 0
+    except Exception:
+        a = 0
+
+    try:
+        a = 1 / 0
+    except:
+        pass
+
     event_loop()

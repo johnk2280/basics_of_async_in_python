@@ -61,31 +61,26 @@ show-fixes = true
 [tool.ruff.lint]
 # Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
 select = [
-    # eradicate - removes commented-out code from Python files 
-    # https://docs.astral.sh/ruff/rules/#eradicate-era 
-    "ERA", 
-    # FastAPI rules
-    # https://docs.astral.sh/ruff/rules/#fastapi-fast
-    "FAST",
-    "I",
-    "E4",
-    "E7",
-    "E9",
-    "F",
-    "B",
-    "COM",
-    "RET",
-    "SIM",
-    "ARG",
-    "PTH",
-    "TD",
-    "RUF",
-    "N",
+    "ALL",
 ]
-ignore = ["N815", "TD002", "TD003", "RUF003"]
+ignore = [
+    "Q",
+    "D",
+    "CPY",
+    "N815",
+    "TD002",
+    "TD003",
+    "RUF003",
+    "TID252",
+]
 
 # Allow fix for all enabled rules (when `--fix`) is provided.
-fixable = ["COM812", "I"]
+fixable = [
+    "COM",
+    "F401",
+    "FA102",
+    "I"
+]
 unfixable = ["B", "RUF001"]
 
 logger-objects = []
@@ -108,3 +103,8 @@ line-ending = "auto"
 
 [tool.ruff.lint.flake8-bandit]
 hardcoded-tmp-directory = ["/tmp", "/temp", "../temp", "../tmp"]
+
+[tool.ruff.lint.isort]
+force-single-line = true
+case-sensitive = true
+relative-imports-order = "closest-to-furthest"
